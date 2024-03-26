@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/25 19:38:31 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:10:43 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,31 @@ void	ft_error(void)
 {
 	ft_printf("Error\n");
 	exit(0);
+}
+
+long long int	ft_atol(const char *str)
+{
+	int				i;
+	int				sign;
+	long long int	num;
+
+	i = 0;
+	sign = 1;
+	num = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+		i++;
+	if ((str[i] == '-') || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	num = num * sign;
+	return (num);
 }
 
 // menú para elegir qué tipo de algoritmo de ordenación debe usar
